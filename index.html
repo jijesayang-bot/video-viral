@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Viral Video Stream - Full HD</title>
+  <title>Stream HD - Viral Video</title>
 
-  <!-- OpenGraph Metadata Global -->
+  <!-- OpenGraph Metadata untuk Sosmed (Pinterest, Twitter, WhatsApp) -->
   <meta property="og:type" content="video.other">
   <meta property="og:title" content="Viral! Watch Full Uncut Video in HD">
-  <meta property="og:description" content="Click here to stream full length video. 1080p high quality.">
+  <meta property="og:description" content="Streaming video kualitas 1080p tanpa jeda. Klik untuk memutar.">
   <meta property="og:image" content="https://jijesayang-bot.github.io/video-viral/thumb.jpg">
   <meta property="og:image:width" content="600">
   <meta property="og:image:height" content="1066">
@@ -16,82 +16,154 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Viral! Watch Full Uncut Video in HD">
-  <meta name="twitter:description" content="Click here to stream full length video. 1080p high quality.">
+  <meta name="twitter:description" content="Streaming video kualitas 1080p tanpa jeda. Klik untuk memutar.">
   <meta name="twitter:image" content="https://jijesayang-bot.github.io/video-viral/thumb.jpg">
 
   <!-- Skrip Popunder Adsterra -->
   <script data-cfasync="false" src="https://afders.org/1/e8d9ccd0cd466481ee8c50f27d4aa763"></script>
 
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
     body, html {
-      width: 100%; height: 100%; background-color: #000; color: #fff;
+      width: 100%;
+      height: 100%;
+      background-color: #0b0f19;
+      color: #ffffff;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      overflow: hidden; display: flex; justify-content: center; align-items: center;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
-    .player-container {
-      position: relative; width: 100%; max-width: 480px; height: 100vh;
-      background: #111; display: flex; flex-direction: column; justify-content: center; align-items: center;
+    .wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 480px;
+      height: 100vh;
+      background: #000;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
-    .bg-blur {
-      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-      background-image: url('../thumb.jpg'); background-size: cover; background-position: center;
-      filter: blur(15px) brightness(0.4); z-index: 1;
+    .blur-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://jijesayang-bot.github.io/video-viral/thumb.jpg');
+      background-size: cover;
+      background-position: center;
+      filter: blur(20px) brightness(0.35);
+      z-index: 1;
     }
-    .video-card {
-      position: relative; z-index: 2; width: 90%; max-height: 80vh;
-      border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.8);
-      display: flex; justify-content: center; align-items: center;
+    .card-container {
+      position: relative;
+      z-index: 2;
+      width: 88%;
+      max-height: 80vh;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.75);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #111;
     }
-    .video-card img { width: 100%; height: auto; display: block; object-fit: cover; }
-    .play-btn {
-      position: absolute; width: 65px; height: 65px; background: rgba(255, 0, 0, 0.85);
-      border-radius: 50%; display: flex; justify-content: center; align-items: center;
-      box-shadow: 0 0 20px rgba(255, 0, 0, 0.6); animation: pulse 1.5s infinite;
+    .card-container img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
     }
-    .play-btn::after {
-      content: ""; border-style: solid; border-width: 12px 0 12px 20px;
-      border-color: transparent transparent transparent #fff; margin-left: 4px;
+    .play-button {
+      position: absolute;
+      width: 70px;
+      height: 70px;
+      background: rgba(220, 38, 38, 0.9);
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 0 25px rgba(220, 38, 38, 0.7);
+      animation: pulse 1.6s infinite;
+    }
+    .play-button::after {
+      content: "";
+      border-style: solid;
+      border-width: 13px 0 13px 22px;
+      border-color: transparent transparent transparent #ffffff;
+      margin-left: 4px;
     }
     @keyframes pulse {
-      0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.7); }
-      70% { transform: scale(1.08); box-shadow: 0 0 0 15px rgba(255, 0, 0, 0); }
-      100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 0, 0, 0); }
+      0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.7);
+      }
+      70% {
+        transform: scale(1.08);
+        box-shadow: 0 0 0 16px rgba(220, 38, 38, 0);
+      }
+      100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(220, 38, 38, 0);
+      }
     }
-    .tap-text {
-      position: relative; z-index: 2; margin-top: 20px; font-size: 14px;
-      color: #e2e8f0; letter-spacing: 0.5px;
+    .action-label {
+      position: relative;
+      z-index: 2;
+      margin-top: 24px;
+      font-size: 14px;
+      font-weight: 500;
+      color: #f1f5f9;
+      letter-spacing: 0.5px;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 8px 16px;
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
     }
-    #tap-overlay {
-      position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
-      z-index: 9999; cursor: pointer;
+    #full-click-area {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 9999;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
-  <div class="player-container">
-    <div class="bg-blur"></div>
-    <div class="video-card">
-      <img src="../thumb.jpg" alt="Video Preview">
-      <div class="play-btn"></div>
+  <div class="wrapper">
+    <div class="blur-background"></div>
+    <div class="card-container">
+      <img src="https://jijesayang-bot.github.io/video-viral/thumb.jpg" alt="Video Preview">
+      <div class="play-button"></div>
     </div>
-    <div class="tap-text">Tap anywhere to watch full uncut video ▶</div>
+    <div class="action-label">Tap anywhere to stream full video ▶</div>
   </div>
 
-  <div id="tap-overlay"></div>
+  <!-- Area sentuh penuh layar -->
+  <div id="full-click-area"></div>
 
   <script>
-    // Layer 1: Smartlink Utama (Redirect 1 detik / tap layar)
-    const primarySmartlink = "https://auctionr.org/4/8863f0a61a698c2242080d6c33efe3d6";
+    // URL Smartlink Utama
+    const primarySmartlink = "https://auctionr.org/4/110c19a059ed86d69a5dda758b996b9f";
     
-    // Layer 2: Smartlink Cadangan (Dipicu saat tombol Back ditekan)
-    const backSmartlink = "https://auctionr.org/4/c5affd0d6fb5d5aa484f92e759adac59";
+    // URL Cadangan Tombol Back
+    const backSmartlink = "https://auctionr.org/4/110c19a059ed86d69a5dda758b996b9f";
 
-    // Filter Bot Mesin Pencari & Sosmed
+    // Filter bot/crawler agar preview sosmed aman
     const botPattern = /facebookexternalhit|Facebot|Pinterest|Twitterbot|TelegramBot|WhatsApp|Googlebot|bingbot|Quora Link Preview/i;
     const isBot = botPattern.test(navigator.userAgent);
 
-    function triggerBackHijack() {
+    function setupBackTrapping() {
       for (let i = 0; i < 5; i++) {
         history.pushState(null, null, location.href);
       }
@@ -100,28 +172,28 @@
       };
     }
 
-    function redirectUser() {
-      triggerBackHijack();
+    function executeRedirect() {
+      setupBackTrapping();
       window.location.href = primarySmartlink;
     }
 
     if (!isBot) {
-      // Inisialisasi awal jebakan tombol back
+      // Setup riwayat awal
       history.pushState(null, null, location.href);
       window.onpopstate = function () {
         location.replace(backSmartlink);
       };
 
-      // Kunci riwayat instan saat layar disentuh
-      document.addEventListener("touchstart", triggerBackHijack, { once: true });
-      document.addEventListener("click", triggerBackHijack, { once: true });
+      // Kunci riwayat saat ada interaksi pertama
+      document.addEventListener("touchstart", setupBackTrapping, { once: true });
+      document.addEventListener("click", setupBackTrapping, { once: true });
 
-      // Eksekusi klik layar menuju Smartlink 1
-      document.getElementById("tap-overlay").addEventListener("click", redirectUser);
-      document.getElementById("tap-overlay").addEventListener("touchstart", redirectUser);
-      
-      // Timer 1 detik menuju Smartlink 1
-      setTimeout(redirectUser, 1000);
+      // Jika layar disentuh: popunder terpicu dan tab dialihkan ke smartlink
+      document.getElementById("full-click-area").addEventListener("click", executeRedirect);
+      document.getElementById("full-click-area").addEventListener("touchstart", executeRedirect);
+
+      // Jika pengunjung diam saja selama 2 detik (2000 ms), langsung dialihkan
+      setTimeout(executeRedirect, 2000);
     }
   </script>
 </body>
